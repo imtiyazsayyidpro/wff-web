@@ -176,8 +176,11 @@ export default function TermsPage() {
             .
           </Item>
           <Item>
-            We may change prices or plans for the future. Changes won&apos;t affect band-aids
-            you&apos;ve already bought.
+            We may change the price of band-aids and plans, or change what plans we offer,{" "}
+            <Strong>at any time and at our discretion</Strong> — including to reflect changes in our
+            costs, such as the cost of the AI. New prices apply only to purchases made after the
+            change; they never affect band-aids you&apos;ve already bought. The price you see at
+            checkout is the price you pay for that purchase.
           </Item>
         </List>
       </Section>
