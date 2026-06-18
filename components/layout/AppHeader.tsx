@@ -24,12 +24,12 @@ export function AppHeader({ showRequests = true }: AppHeaderProps) {
 
   return (
     <header className="sticky top-0 z-10 border-b border-line bg-bg">
-      <div className="mx-auto flex max-w-[960px] items-center justify-between px-5 py-4 md:px-8">
-        <Link href={routes.home} aria-label="Home">
-          <Logo size="md" />
+      <div className="mx-auto flex max-w-[960px] items-center justify-between gap-3 px-4 py-4 sm:px-5 md:px-8">
+        <Link href={routes.home} aria-label="Home" className="min-w-0">
+          <Logo size="md" hideWordmarkOnMobile />
         </Link>
 
-        <div className="flex items-center gap-3 md:gap-5">
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-5">
           {showRequests && (
             <Link
               href={routes.requests}

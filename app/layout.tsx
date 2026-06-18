@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
-  // og:image / twitter:image are auto-wired from app/opengraph-image.png
-  // and app/twitter-image.png (see README note for the files to add).
+  // og:image / twitter:image are auto-wired from app/opengraph-image.jpg
+  // (kept under ~80KB so WhatsApp's ~300KB preview limit renders the image).
   openGraph: {
     type: "website",
     siteName: SITE_NAME,

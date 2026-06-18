@@ -13,11 +13,18 @@ interface LogoProps {
   size?: LogoSize;
   /** Show the "WORTH FIGHTING FOR" wordmark next to the mark. */
   withWordmark?: boolean;
+  /** Hide the wordmark on phones (below the `sm` breakpoint) to save space in crowded headers. */
+  hideWordmarkOnMobile?: boolean;
   className?: string;
 }
 
 /** The hands-heart brand mark with optional wordmark. */
-export function Logo({ size = "md", withWordmark = true, className }: LogoProps) {
+export function Logo({
+  size = "md",
+  withWordmark = true,
+  hideWordmarkOnMobile = false,
+  className,
+}: LogoProps) {
   const { mark, text } = sizes[size];
 
   return (
@@ -27,6 +34,7 @@ export function Logo({ size = "md", withWordmark = true, className }: LogoProps)
         <span
           className={cn(
             "font-serif tracking-[0.05em] text-ink whitespace-nowrap",
+            hideWordmarkOnMobile && "hidden sm:inline",
             text,
           )}
         >
