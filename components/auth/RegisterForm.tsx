@@ -16,7 +16,6 @@ import { Alert } from "@/components/ui/Alert";
 import { Divider } from "@/components/ui/Divider";
 import { GoogleButton } from "@/components/ui/GoogleButton";
 import { GoogleIcon } from "@/components/ui/GoogleIcon";
-import { Disclaimer } from "@/components/ui/Disclaimer";
 import { AuthLegalNote } from "@/components/auth/AuthLegalNote";
 
 export function RegisterForm() {
@@ -133,7 +132,6 @@ export function RegisterForm() {
         </Link>
       </p>
       <AuthLegalNote className="mt-6" />
-      <Disclaimer className="mt-3" />
     </div>
   );
 }

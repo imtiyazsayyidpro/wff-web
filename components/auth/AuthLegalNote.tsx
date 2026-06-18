@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils/cn";
 import { routes } from "@/config/routes";
 
 /**
- * Quiet consent line shown beneath the auth forms. Blends with the foot-of-page
- * Disclaimer: same faint weight, links to the public legal documents.
+ * Foot-of-form note for the login/register screens: the legal consent line and
+ * the "not therapy" safety note, grouped as a single quiet, centered paragraph.
  */
 export function AuthLegalNote({ className }: { className?: string }) {
   return (
@@ -26,7 +26,7 @@ export function AuthLegalNote({ className }: { className?: string }) {
       <Link href={routes.legalRefunds} className="font-semibold text-muted underline decoration-line2 underline-offset-2 hover:text-ink">
         Refund Policy
       </Link>
-      .
+      . AI-guided conversations — not therapy or a substitute for professional care.
     </p>
   );
 }
