@@ -1,26 +1,164 @@
 @import "tailwindcss";
 
+/* Theme-attribute variant: `night:` applies under [data-theme="night"]. */
+@custom-variant night ([data-theme="night"] &);
+
+/* ============================================================================
+   First Light — design tokens
+   Palettes switch via [data-theme="day"|"night"] (set on <html> by next-themes).
+   Raw values come straight from the design file.
+   ========================================================================== */
+
+[data-theme="day"],
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #fcf8f6;
+  --bg2: #f6eeea;
+  --panel: #ffffff;
+  --panel2: #fbf6f4;
+  --ink: #3a2e38;
+  --muted: #8b7f88;
+  --faint: #b7aeb4;
+  --line: rgba(58, 46, 56, 0.1);
+  --line2: rgba(58, 46, 56, 0.17);
+  --blush: #c98e86;
+  --blushd: #b6796f;
+  --blush-soft: #f0e6e4;
+  --sage: #9fb0a1;
+  --saged: #7e927f;
+  --sage-soft: #e7ede7;
+  --orb1: #f8ddd6;
+  --orb2: #d69e96;
+  --orb-glow: rgba(214, 158, 150, 0.5);
+  --shadow: rgba(58, 46, 56, 0.2);
+  --bezel: #241f28;
+  --field: #ffffff;
+  color-scheme: light;
 }
 
+[data-theme="night"] {
+  --bg: #1c1622;
+  --bg2: #241d2a;
+  --panel: #2a2230;
+  --panel2: #322738;
+  --ink: #f2e9ec;
+  --muted: #a99fa6;
+  --faint: #766b73;
+  --line: rgba(242, 233, 236, 0.1);
+  --line2: rgba(242, 233, 236, 0.18);
+  --blush: #dba9a1;
+  --blushd: #e8b9b1;
+  --blush-soft: #3c2d34;
+  --sage: #a9bbab;
+  --saged: #bfd0c0;
+  --sage-soft: #2c3a31;
+  --orb1: #f6d9d1;
+  --orb2: #d69e96;
+  --orb-glow: rgba(214, 158, 150, 0.55);
+  --shadow: rgba(0, 0, 0, 0.55);
+  --bezel: #0c0910;
+  --field: #241d2a;
+  color-scheme: dark;
+}
+
+/* ----------------------------------------------------------------------------
+   Map runtime tokens into Tailwind utilities.
+   `inline` makes utilities reference the raw var, so they re-theme live
+   (e.g. `text-ink` -> color: var(--ink)).
+   -------------------------------------------------------------------------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-bg2: var(--bg2);
+  --color-panel: var(--panel);
+  --color-panel2: var(--panel2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line2: var(--line2);
+  --color-blush: var(--blush);
+  --color-blushd: var(--blushd);
+  --color-blush-soft: var(--blush-soft);
+  --color-sage: var(--sage);
+  --color-saged: var(--saged);
+  --color-sage-soft: var(--sage-soft);
+  --color-field: var(--field);
+  --color-bezel: var(--bezel);
+
+  --font-serif: var(--font-marcellus);
+  --font-sans: var(--font-mulish);
+
+  --animate-breathe: wf-breathe 6s ease-in-out infinite;
+  --animate-glow: wf-glow 5s ease-in-out infinite;
+  --animate-rise: wf-rise 0.6s ease both;
+  --animate-fade: wf-fade 0.5s ease both;
+  --animate-drift: wf-drift 7s ease-in-out infinite;
+  --animate-slideup: wf-slideup 0.34s cubic-bezier(0.32, 0.72, 0.3, 1) both;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ----------------------------------------------------------------------------
+   Keyframes (from the design file).
+   -------------------------------------------------------------------------- */
+@keyframes wf-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.075); }
+}
+@keyframes wf-glow {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.95; }
+}
+@keyframes wf-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes wf-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes wf-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(0, -10px); }
+}
+@keyframes wf-slideup {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes wf-heart-float {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(calc(var(--hs, 1) * 0.45)) rotate(-12deg);
+  }
+  18% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--hdrift, 0px), -240px) scale(var(--hs, 1)) rotate(12deg);
   }
 }
 
+/* ----------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+html {
+  height: 100%;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-mulish), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+  }
 }
