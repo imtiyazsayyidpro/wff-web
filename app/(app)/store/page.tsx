@@ -116,6 +116,24 @@ export default function StorePage() {
           </span>
         </div>
 
+        {/* payments-not-live notice */}
+        <div className="mx-auto mb-7 max-w-[620px] rounded-[18px] border border-line bg-panel px-[20px] py-[18px] text-center">
+          <div className="mb-[6px] text-[11px] font-bold uppercase tracking-[0.16em] text-faint">
+            Payments coming soon
+          </div>
+          <p className="mx-auto max-w-[480px] text-[13.5px] leading-[1.6] text-muted">
+            We&apos;re not accepting payments just yet — checkout is on its way and goes live very
+            soon. In the meantime, if your shared pool is running low, email us at{" "}
+            <a
+              href="mailto:info@worthfightingfor.in"
+              className="font-bold text-ink underline underline-offset-2 hover:opacity-80"
+            >
+              info@worthfightingfor.in
+            </a>{" "}
+            and we&apos;ll get you more band-aids.
+          </p>
+        </div>
+
         {/* plans — up to three across */}
         <div className="mx-[2px] mb-3 text-[11px] font-bold uppercase tracking-[0.16em] text-faint">
           Top up
@@ -128,6 +146,7 @@ export default function StorePage() {
                 plan={plan}
                 popular={plan.id === bestValueId}
                 onBuy={() => pickPlan(plan)}
+                disabled
               />
             ))}
           </div>

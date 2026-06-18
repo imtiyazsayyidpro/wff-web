@@ -7,9 +7,10 @@ interface PlanCardProps {
   plan: Plan;
   popular?: boolean;
   onBuy: () => void;
+  disabled?: boolean;
 }
 
-export function PlanCard({ plan, popular, onBuy }: PlanCardProps) {
+export function PlanCard({ plan, popular, onBuy, disabled }: PlanCardProps) {
   const qty = plan.bandAidQuantity;
   const qtyLabel = `${qty} band-aid${qty === 1 ? "" : "s"}`;
 
@@ -45,9 +46,10 @@ export function PlanCard({ plan, popular, onBuy }: PlanCardProps) {
       <button
         type="button"
         onClick={onBuy}
-        className="w-full rounded-xl border border-ink bg-ink py-3 text-[14px] font-bold text-bg transition-opacity hover:opacity-90"
+        disabled={disabled}
+        className="w-full rounded-xl border border-ink bg-ink py-3 text-[14px] font-bold text-bg transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:border-line2 disabled:bg-panel2 disabled:text-faint disabled:hover:opacity-100"
       >
-        Buy
+        {disabled ? "Coming soon" : "Buy"}
       </button>
     </div>
   );
