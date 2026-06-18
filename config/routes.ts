@@ -38,6 +38,12 @@ export const routes = {
   // Linked from the dashboard drawer.
   memories: "/memories",
   settings: "/settings",
+
+  // Public legal documents (linked from auth screens).
+  legal: "/legal",
+  legalTerms: "/legal/terms",
+  legalPrivacy: "/legal/privacy",
+  legalRefunds: "/legal/refunds",
 } as const;
 
 export type AppRoute = (typeof routes)[keyof typeof routes];

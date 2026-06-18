@@ -158,6 +158,22 @@ export default function LandingPage() {
           from a licensed counselor. If either of you is in crisis or feels unsafe, please contact
           a qualified professional or your local emergency services.
         </p>
+        <nav
+          aria-label="Legal"
+          className="mx-auto mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[12.5px] text-faint"
+        >
+          <Link href={routes.legalTerms} className="font-semibold text-muted no-underline hover:text-ink">
+            Terms
+          </Link>
+          <span aria-hidden="true" className="opacity-50">·</span>
+          <Link href={routes.legalPrivacy} className="font-semibold text-muted no-underline hover:text-ink">
+            Privacy
+          </Link>
+          <span aria-hidden="true" className="opacity-50">·</span>
+          <Link href={routes.legalRefunds} className="font-semibold text-muted no-underline hover:text-ink">
+            Refunds
+          </Link>
+        </nav>
       </footer>
     </main>
   );
