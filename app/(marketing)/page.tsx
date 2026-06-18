@@ -4,6 +4,7 @@ import { buttonVariants } from "@/components/ui/Button";
 import { MarketingNav } from "@/components/marketing/MarketingNav";
 import { HowItWorksCard } from "@/components/marketing/HowItWorksCard";
 import { CounselorCarousel } from "@/components/marketing/CounselorCarousel";
+import { DemoSession } from "@/components/marketing/DemoSession";
 import { routes } from "@/config/routes";
 
 const HOW_STEPS = [
@@ -72,6 +73,39 @@ export default function LandingPage() {
           <div className="absolute inset-x-0 bottom-6 text-center text-[12.5px] uppercase tracking-[0.16em] text-ink/55">
             A steady, gentle presence
           </div>
+        </div>
+      </section>
+
+      {/* a glimpse inside a session */}
+      <section className="px-6 py-16 md:px-[54px]">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
+          <div>
+            <div className="mb-3 text-[12px] font-bold uppercase tracking-[0.26em] text-blush">
+              A glimpse inside
+            </div>
+            <h2 className="mb-[18px] font-serif text-[28px] leading-[1.12] md:text-[34px]">
+              See what a session feels like.
+            </h2>
+            <p className="mb-6 max-w-[440px] text-[15px] leading-[1.65] text-muted md:text-[16.5px]">
+              One person speaks, the other reflects it back, and your counselor gently steers the
+              next turn — so you slow down, feel heard, and stay on the same side. This is a glimpse
+              of that rhythm.
+            </p>
+            <ul className="space-y-[14px]">
+              {[
+                "Take turns — no talking over each other",
+                "Your counselor reflects and reframes, never takes sides",
+                "Kind, unhurried, and just between the two of you",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-[14.5px] leading-[1.55] text-ink">
+                  <span className="mt-[6px] h-[7px] w-[7px] flex-none rounded-full bg-blush" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <DemoSession />
         </div>
       </section>
 
