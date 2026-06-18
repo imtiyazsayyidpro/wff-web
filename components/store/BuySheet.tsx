@@ -67,13 +67,9 @@ export function BuySheet({
             )}
 
             <div className="mb-[14px] rounded-2xl border border-line bg-panel px-[18px] py-4">
-              <div className="mb-[10px] flex items-center justify-between gap-3">
+              <div className="flex items-center justify-between gap-3">
                 <span className="text-[14px] text-muted">{planLabel}</span>
                 <span className="text-[15px] font-bold text-ink">{priceLabel}</span>
-              </div>
-              <div className="flex items-center justify-between gap-3 border-t border-line pt-[10px]">
-                <span className="text-[13px] text-muted">Your pool will hold</span>
-                <span className="text-[14px] font-bold text-ink">{after} band-aids</span>
               </div>
             </div>
             <p className="mb-[18px] text-center text-[12.5px] leading-[1.55] text-faint">
